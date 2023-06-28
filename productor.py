@@ -1,5 +1,3 @@
-import asyncio
-
 from azure.eventhub import EventData
 from azure.eventhub import EventHubProducerClient
 from azure.identity import DefaultAzureCredential

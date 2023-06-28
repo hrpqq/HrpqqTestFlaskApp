@@ -1,6 +1,7 @@
 Flask==2.0.2
 gunicorn
 azure-eventhub
-azure-eventhub-checkpointstoreblob-aio
+# azure-eventhub-checkpointstoreblob-aio
+azure-eventhub-checkpointstoreblob
 azure-identity
 aiohttp

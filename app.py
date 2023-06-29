@@ -16,6 +16,9 @@ consumer = Consumer()
 threading.Thread(target=consumer.listen).start()
 print('3')
 
+@app.errorhandler(Exception)
+def error_handler(e):
+    consumer.errors.append(e)
 
 @app.route('/')
 def index():
@@ -40,5 +43,5 @@ def hello():
         return redirect(url_for('index'))
     
 if __name__ == '__main__':
-     app.run()
+     app.run(debug=True)
    

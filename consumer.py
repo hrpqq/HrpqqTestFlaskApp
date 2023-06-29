@@ -35,6 +35,7 @@ class Consumer:
             checkpoint_store=checkpoint_store,
         )
         self.names = []
+        self.errors = []
 
     def on_event(self, partition_context, event):
         # Print the event data.
@@ -50,11 +51,23 @@ class Consumer:
         # that it has already read when you run it next time.
         partition_context.update_checkpoint(event)
 
+    def on_error(self, partition_context, error):
+        # Put your code here. partition_context can be None in the on_error callback.
+        self.errors.append(error)
+        if partition_context:
+            print("An exception: {} occurred during receiving from Partition: {}.".format(
+                partition_context.partition_id,
+                error
+            ))
+        else:
+            print("An exception: {} occurred during the load balance process.".format(error))
+
     def listen(self):
         with self.client:
-            self.client.receive(on_event=self.on_event, starting_position="-1")
-        # self.credential.close()
+            self.client.receive(
+                on_event=self.on_event, 
+                on_error=self.on_error,
+                starting_position="-1")
+        self.credential.close()
 
-        # Call the receive method. Read from the beginning of the
-        # partition (starting_position: "-1")
         

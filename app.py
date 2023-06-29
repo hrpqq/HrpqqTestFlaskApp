@@ -7,6 +7,7 @@ from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
 app = Flask(__name__)
+app.config['FLASK_ENV']='development'
 
 print('1')
 productor = Productor()
@@ -33,7 +34,7 @@ def hello():
     productor.send(name)
     if name:
         print('Request for hello page received with name=%s' % name)
-        return render_template('hello.html', names = consumer.names)
+        return render_template('hello.html', names = consumer.names, errors = consumer.errors)
     else:
         print('Request for hello page received with no name or blank name -- redirecting')
         return redirect(url_for('index'))

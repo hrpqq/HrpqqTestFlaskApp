@@ -19,13 +19,13 @@ EVENT_HUB_NAME = "hub1"
 
 class Consumer:
     def __init__(self) -> None:
-        self.credential = DefaultAzureCredential()
+        self.credential = DefaultAzureCredential.from_connection_string()
         # Create an Azure blob checkpoint store to store the checkpoints.
         checkpoint_store = BlobCheckpointStore(
-            # conn_str=BLOB_STORAGE_CONNECTION_STRING, 
+            conn_str=BLOB_STORAGE_CONNECTION_STRING, 
             blob_account_url=BLOB_STORAGE_ACCOUNT_URL,
             container_name=BLOB_CONTAINER_NAME,
-            credential=self.credential,
+            # credential=self.credential,
         )
         # Create a consumer client for the event hub.
         self.client = EventHubConsumerClient.from_connection_string(

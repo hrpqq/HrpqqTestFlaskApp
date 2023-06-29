@@ -37,7 +37,7 @@ def hello():
     productor.send(name)
     if name:
         print('Request for hello page received with name=%s' % name)
-        return render_template('hello.html', names = consumer.names, errors = consumer.errors)
+        return render_template('hello.html', names = consumer.names, errors = consumer.errors, partition = consumer.partition, event=consumer.event)
     else:
         print('Request for hello page received with no name or blank name -- redirecting')
         return redirect(url_for('index'))

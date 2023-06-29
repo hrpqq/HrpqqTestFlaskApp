@@ -36,6 +36,8 @@ class Consumer:
         )
         self.names = []
         self.errors = []
+        self.partition = {}
+        self.event = {}
 
     def on_event(self, partition_context, event):
         # Print the event data.
@@ -46,6 +48,8 @@ class Consumer:
             )
         )
         self.names.append(mess)
+        self.partition=partition_context
+        self.event=event
 
         # Update the checkpoint so that the program doesn't read the events
         # that it has already read when you run it next time.

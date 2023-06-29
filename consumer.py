@@ -11,7 +11,7 @@ from azure.eventhub.extensions.checkpointstoreblob import BlobCheckpointStore
 
 from azure.identity import DefaultAzureCredential
 
-BLOB_STORAGE_ACCOUNT_URL = "hrpqqtestsa.blob.core.windows.net"
+BLOB_STORAGE_ACCOUNT_URL = "https://hrpqqtestsa.blob.core.windows.net"
 BLOB_STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=hrpqqtestsa;AccountKey=ELTWw06ZfvPu9OYaDnXfe3mW6Drf+l0SvE5V8JLoO51sM4zDfgQSqozxGlhIiHzvXmFfHfxCbRHG+AStPHcFAQ==;EndpointSuffix=core.windows.net"
 BLOB_CONTAINER_NAME = "checkpoints"
 EVENT_HUB_CONNECTION_STR = "Endpoint=sb://hrpqqtesteventhubns.servicebus.windows.net/;SharedAccessKeyName=first;SharedAccessKey=EKx/IHO/UFXjc785qV4B2owxJFvOBBXga+AEhGerrIU=;EntityPath=hub1"

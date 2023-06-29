@@ -5,3 +5,4 @@ azure-eventhub
 azure-eventhub-checkpointstoreblob
 azure-identity
 aiohttp
+cryptography==3.4.8

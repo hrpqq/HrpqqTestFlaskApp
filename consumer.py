@@ -1,14 +1,5 @@
-
-
-
 from azure.eventhub import EventHubConsumerClient
-
-# from azure.eventhub.extensions.checkpointstoreblobaio import (
-#    BlobCheckpointStore,
-#)
-
 from azure.eventhub.extensions.checkpointstoreblob import BlobCheckpointStore
-
 from azure.identity import DefaultAzureCredential
 
 BLOB_STORAGE_ACCOUNT_URL = "https://hrpqqtestsa.blob.core.windows.net"
@@ -42,9 +33,9 @@ class Consumer:
     def on_event(self, partition_context, event):
         # Print the event data.
         mess = event.body_as_str(encoding="UTF-8")
-        print(
-            'Received the event: "{}" from the partition with ID: "{}"'.format(
-                mess, partition_context.partition_id
+        print('Received the event: "{}" from the partition with ID: "{}"'.format(
+                mess, 
+                partition_context.partition_id
             )
         )
         self.names.append(mess)

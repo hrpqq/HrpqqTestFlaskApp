@@ -1,8 +1,7 @@
 import os
+import threading
 from productor import Productor
 from consumer import Consumer
-import threading
-
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 

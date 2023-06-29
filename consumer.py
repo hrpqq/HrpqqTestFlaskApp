@@ -22,7 +22,7 @@ class Consumer:
         self.credential = DefaultAzureCredential()
         # Create an Azure blob checkpoint store to store the checkpoints.
         checkpoint_store = BlobCheckpointStore(
-            # BLOB_STORAGE_CONNECTION_STRING, 
+            # conn_str=BLOB_STORAGE_CONNECTION_STRING, 
             blob_account_url=BLOB_STORAGE_ACCOUNT_URL,
             container_name=BLOB_CONTAINER_NAME,
             credential=self.credential,

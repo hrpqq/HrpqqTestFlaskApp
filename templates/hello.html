@@ -10,13 +10,13 @@
         <div class="px-4 py-3 my-2 text-center">
             <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
             <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-            <span>event contents: </span>
+            <span style="display: block;">event contents: </span>
             <span>{{names}}</span>
-            <span>global errors: </span>
+            <span style="display: block;">global errors: </span>
             <span>{{errors}}</span>
-            <span>last partition: </span>
+            <span style="display: block;">last partition: </span>
             <span>{{partition}}</span>
-            <span>last event: </span>
+            <span style="display: block;">last event: </span>
             <span>{{event}}</span>
             <p class="fs-5">
                 It is nice to meet you!
